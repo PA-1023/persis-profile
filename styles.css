@@ -1,0 +1,57 @@
+:root{
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --accent:#2b8bf2;
+  --text:#0f1720;
+  --muted:#6b7280;
+  --radius:10px;
+  --container-width:900px;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{max-width:var(--container-width);margin:0 auto;padding:20px}
+
+/* Header */
+.site-header{background:linear-gradient(90deg,#fff 0%, #f8fbff 100%);border-bottom:1px solid #e6eef8}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:16px}
+.avatar{width:72px;height:72px;border-radius:12px;object-fit:cover;border:2px solid #e6eef8}
+.name{margin:0;font-size:20px}
+.tagline{margin:0;color:var(--muted);font-size:14px}
+
+/* Nav */
+.site-nav{display:flex;gap:12px}
+.site-nav a{color:var(--muted);text-decoration:none;padding:8px;border-radius:6px}
+.site-nav a:hover{background:#eef6ff;color:var(--accent)}
+.nav-toggle{display:none;padding:8px 10px;border-radius:6px}
+
+/* Main cards */
+.card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(15,23,32,0.04);margin:20px 0}
+.skills-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.bar{background:#eef3ff;border-radius:8px;height:12px;overflow:hidden}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#4fc3ff);border-radius:8px}
+
+/* Projects grid */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+.project{padding:12px;border-radius:8px;border:1px solid #f0f4f8;background:#fff}
+.button{display:inline-block;margin-top:8px;padding:6px 10px;background:var(--accent);color:white;text-decoration:none;border-radius:6px}
+
+/* Footer */
+.site-footer{padding:18px 0;color:var(--muted);font-size:14px;text-align:center;margin-top:30px}
+
+/* Responsive */
+@media (max-width:780px){
+  .site-nav{position:absolute;top:88px;right:20px;background:var(--card);flex-direction:column;padding:12px;border-radius:8px;display:none;box-shadow:0 8px 26px rgba(15,23,32,0.08)}
+  .site-nav.open{display:flex}
+  .nav-toggle{display:inline-block}
+  .header-inner{position:relative}
+}
