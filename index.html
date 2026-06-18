@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Persis — Profile</title>
+  <meta name="description" content="Persis — aspiring developer. Personal profile showcasing projects and skills." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Persis — Profile" />
+  <meta property="og:description" content="Aspiring developer building small projects to practice HTML, CSS & JavaScript." />
+  <meta property="og:type" content="website" />
+  <!-- Favicon (replace with your favicon file if you add one) -->
+  <link rel="icon" href="favicon.ico" />
+  <!-- Optional: load Inter from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <!-- Avatar: width/height + loading to reduce CLS -->
+        <img class="avatar" src="https://via.placeholder.com/150" alt="Persis's photo" width="72" height="72" loading="lazy" />
+        <div>
+          <h1 class="name">Persis</h1>
+          <p class="tagline">Aspiring developer • Learning HTML, CSS & JavaScript</p>
+        </div>
+      </div>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+
+      <nav id="nav" class="site-nav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section id="about" class="card">
+      <h2>About</h2>
+      <p>Hello — I’m Persis. I’m starting to learn to code and building small projects to practice. I enjoy trying new tools and creating useful things one step at a time.</p>
+    </section>
+
+    <section id="skills" class="card">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>
+          <strong>HTML</strong>
+          <div class="bar" aria-hidden="true"><span style="width: 90%"></span></div>
+        </li>
+        <li>
+          <strong>CSS</strong>
+          <div class="bar" aria-hidden="true"><span style="width: 70%"></span></div>
+        </li>
+        <li>
+          <strong>JavaScript</strong>
+          <div class="bar" aria-hidden="true"><span style="width: 40%"></span></div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="projects" class="card">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <article class="project">
+          <h3>Personal Page</h3>
+          <p>This single-page profile built with HTML & CSS.</p>
+          <a href="#" class="button" aria-label="View Personal Page project (placeholder)">View</a>
+        </article>
+        <article class="project">
+          <h3>Guess the Number</h3>
+          <p>Small JavaScript game to practice logic and DOM.</p>
+          <a href="#" class="button" aria-label="View Guess the Number project (placeholder)">View</a>
+        </article>
+        <article class="project">
+          <h3>To‑Do List</h3>
+          <p>Practice with arrays and event handling.</p>
+          <a href="#" class="button" aria-label="View To-Do List project (placeholder)">View</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>Want to say hi? Email me at <a id="email-link" href="mailto:phaa940@gmail.com">phaa940@gmail.com</a> or find me on GitHub: <a href="https://github.com/PA-1023" target="_blank" rel="noopener noreferrer">PA-1023</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Made with HTML & CSS • <small>Customize this template and make it yours.</small></p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('nav');
+    if (navToggle && nav) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    }
+
+    // Smooth scroll for internal links — ignore plain "#" anchors (placeholders)
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return; // ignore empty/hash-only links
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+          // close mobile nav if open
+          if (nav) {
+            nav.classList.remove('open');
+          }
+          if (navToggle) {
+            navToggle.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
